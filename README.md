@@ -3,7 +3,7 @@ This is multiplayer tic tac toe game that uses web sockets to communicate betwee
 
 ## Instalation
 
-clone repo and run it locally as a spring project and load up http://localhost:8080 to enter the game queue.
+clone repo and run "npm run build" in the FrontEnd directory and then run the spring project and go to localhost:8080.
 
 
 
