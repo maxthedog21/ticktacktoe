@@ -10,6 +10,16 @@ public class Game {
    }
 
 
+public static int getOppositeId(int id){
+    String[] newId = Integer.toString(id).split("");
+    String lastValue = newId[newId.length - 1];
+    newId[newId.length - 1] = lastValue.equals("1") ? "2" : "1";
+    String returnString = "";
+    for(int i = 0; i < newId.length; i++){
+        returnString = returnString + newId[i];
+    }
+    return Integer.parseInt(returnString);
+}
 
 
 
@@ -52,5 +62,10 @@ public String getEndPoint(String player){
         return this.playerOne;
     }
    }
+
+
+
+
+
 
 }

@@ -14,7 +14,7 @@ public class GameService {
     private static int currentGameId = 0;
 
     public GameQueue enterGameQueue(){
-        if(gameList.size() >= 100 ){
+        if(gameList.size() >= this.MAXGAMES){
             return new GameQueue(QueueEvent.WAIT);
         }
         if(gameWaitList.size() < 1){
@@ -27,4 +27,10 @@ public class GameService {
             return new GameQueue(QueueEvent.JOIN, game);
         }
     }
+
+    public GameMoveReturn gameMove(GameMove gameMove, int id){
+        return new GameMoveReturn(gameMove.getGameBoard(), gameMove.endGameCheck(), Game.getOppositeId(id));
+    }
+
+
 }
