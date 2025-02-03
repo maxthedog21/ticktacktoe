@@ -9,14 +9,8 @@ import org.springframework.stereotype.Controller;
 public class GameController {
 
 
+
     final private GameService gameService = new GameService();
-
-
-    @MessageMapping("/move/{id}")
-    @SendTo("/game/move")
-    public String gameMove(String name, @DestinationVariable Long id) throws Exception {
-        return "hello " + name + ", id: " + id;
-    }
 
 
     @MessageMapping("/queue/start")
@@ -25,10 +19,10 @@ public class GameController {
         return gameService.enterGameQueue();
     }
 
-    @MessageMapping("/queue/join/{id}")
-    @SendTo("/game/queue/wait/{id}")
-    public String enterGameQueue(@DestinationVariable Long id) throws Exception {
-        return "Someone is joining game: " + id;
+    @MessageMapping("/game/move/{id}")
+    @SendTo("/game/move/{id}")
+    public GameMoveReturn enterGameQueue(@DestinationVariable int id, GameMove gameMove) throws Exception {
+        return gameService.gameMove(gameMove, id);
     } 
 
 
