@@ -21,7 +21,7 @@ export default{
     computed: {
         getText(){
             if(this.gameState === 'OWINS' || this.gameState === 'XWINS' || this.gameState === 'DRAW'){
-                return "Search for New Game";
+                return "New Game";
             }else{
                 return "Search for Game";
             }
